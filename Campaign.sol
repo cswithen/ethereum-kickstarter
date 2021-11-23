@@ -6,11 +6,19 @@ contract Campaign {
         uint256 value;
         address recipient;
         bool complete;
+        uint256 approvalCount;
+        mapping(address => bool) approvals;
     }
 
+    Request[] public requests;
     address public manager;
     uint256 public minimumContribution;
-    address[] public approvers;
+    mapping(address => bool) public approvers;
+
+    modifier restricted() {
+        require(msg.sender == manager);
+        _;
+    }
 
     function Campaign(uint256 minimum) public {
         manager = msg.sender;
@@ -20,7 +28,7 @@ contract Campaign {
     function contribute() public payable {
         require(msg.value > minimumContribution);
 
-        approvers.push(msg.sender);
+        approvers[msg.sender] = true;
     }
 
     function createRequest(
@@ -31,10 +39,21 @@ contract Campaign {
         Request memory newRequest = Request({
             description: description,
             value: value,
-            recipient: recipicent,
-            complete: false
+            recipient: recipient,
+            complete: false,
+            approvalCount: 0
         });
 
         requests.push(newRequest);
+    }
+
+    function approveRequest(uint256 index) public {
+        Request storage request = requests[index];
+
+        require(approvers[msg.sender]);
+        require(!request.approvals[msg.sender]);
+
+        request.approvals[msg.sender] = true;
+        request.approvalCount++;
     }
 }
