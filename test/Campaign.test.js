@@ -54,9 +54,10 @@ describe("Campaigns", () => {
       await campaign.methods
         .contribute()
         .send({ value: "5", from: accounts[1] });
-      assert(false);
     } catch (error) {
-      assert(error);
+      assert(true);
+      return;
     }
+    assert(false);
   });
 });
