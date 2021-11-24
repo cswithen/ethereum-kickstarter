@@ -1,7 +1,14 @@
 import Web3 from "web3";
+import { infuraLink } from "./secrets";
 
-window.ethereum.request({ method: "eth_requestAccounts" });
+let web3;
 
-const web3 = new Web3(window.ethereum);
+if (typeof window !== "undefined" && typeof window.ethereum !== "undefined") {
+  window.ethereum.request({ method: "eth_requestAccounts" });
+  web3 = new Web3(window.ethereum);
+} else {
+  const provider = new Web3.providers.HttpProvider(infuraLink);
+  web3 = new Web3(provider);
+}
 
 export default web3;
