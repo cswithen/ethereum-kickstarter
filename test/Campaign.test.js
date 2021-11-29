@@ -14,9 +14,9 @@ let campaign;
 beforeEach(async () => {
   accounts = await web3.eth.getAccounts();
 
-  factory = await new web3.eth.Contract(JSON.parse(compiledFactory.interface))
-    .deploy({ data: compiledFactory.bytecode })
-    .send({ from: accounts[0], gas: "1000000" });
+  factory = await new web3.eth.Contract(compiledFactory.abi)
+    .deploy({ data: compiledFactory.evm.bytecode.object })
+    .send({ from: accounts[0], gas: "3000000" });
 
   await factory.methods.createCampaign("100").send({
     from: accounts[0],
@@ -24,10 +24,7 @@ beforeEach(async () => {
   });
 
   [campaignAddress] = await factory.methods.getDeployedCampaigns().call();
-  campaign = await new web3.eth.Contract(
-    JSON.parse(compiledCampaign.interface),
-    campaignAddress
-  );
+  campaign = await new web3.eth.Contract(compiledCampaign.abi, campaignAddress);
 });
 
 describe("Campaigns", () => {
@@ -68,7 +65,6 @@ describe("Campaigns", () => {
         from: accounts[0],
         gas: "1000000",
       });
-
     const request = await campaign.methods.requests(0).call();
 
     assert.equal("Buy batteries", request.description);

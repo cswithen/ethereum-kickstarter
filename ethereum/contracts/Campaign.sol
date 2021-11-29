@@ -1,14 +1,15 @@
-pragma solidity ^0.4.17;
+// SPDX-License-Identifier: GPL-3.0
+pragma solidity ^0.8.2;
 
 contract CampaignFactory {
-    address[] public deployedCampaigns;
+    Campaign[] public deployedCampaigns;
 
     function createCampaign(uint256 minimum) public {
-        address newCampaign = new Campaign(minimum, msg.sender);
+        Campaign newCampaign = new Campaign(minimum, msg.sender);
         deployedCampaigns.push(newCampaign);
     }
 
-    function getDeployedCampaigns() public view returns (address[]) {
+    function getDeployedCampaigns() public view returns (Campaign[] memory) {
         return deployedCampaigns;
     }
 }
@@ -17,13 +18,15 @@ contract Campaign {
     struct Request {
         string description;
         uint256 value;
-        address recipient;
+        address payable recipient;
         bool complete;
         uint256 approvalCount;
         mapping(address => bool) approvals;
     }
 
-    Request[] public requests;
+    uint256 numRequests;
+    mapping(uint256 => Request) public requests;
+
     address public manager;
     uint256 public minimumContribution;
     mapping(address => bool) public approvers;
@@ -34,7 +37,7 @@ contract Campaign {
         _;
     }
 
-    function Campaign(uint256 minimum, address creator) public {
+    constructor(uint256 minimum, address creator) {
         manager = creator;
         minimumContribution = minimum;
     }
@@ -47,19 +50,17 @@ contract Campaign {
     }
 
     function createRequest(
-        string description,
+        string calldata description,
         uint256 value,
-        address recipient
+        address payable recipient
     ) public restricted {
-        Request memory newRequest = Request({
-            description: description,
-            value: value,
-            recipient: recipient,
-            complete: false,
-            approvalCount: 0
-        });
-
-        requests.push(newRequest);
+        Request storage newRequest = requests[numRequests];
+        numRequests++;
+        newRequest.description = description;
+        newRequest.value = value;
+        newRequest.recipient = recipient;
+        newRequest.complete = false;
+        newRequest.approvalCount = 0;
     }
 
     function approveRequest(uint256 index) public {
@@ -95,14 +96,14 @@ contract Campaign {
     {
         return (
             minimumContribution,
-            this.balance,
-            requests.length,
+            address(this).balance,
+            numRequests,
             approversCount,
             manager
         );
     }
 
     function getRequestsCount() public view returns (uint256) {
-        return requests.length;
+        return numRequests;
     }
 }

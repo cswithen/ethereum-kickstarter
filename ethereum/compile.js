@@ -7,13 +7,36 @@ fs.removeSync(buildPath);
 
 const campaignPath = path.resolve(__dirname, "contracts", "Campaign.sol");
 const source = fs.readFileSync(campaignPath, "utf8");
-const output = solc.compile(source, 1).contracts;
+
+const input = {
+  language: "Solidity",
+  sources: {
+    "Campaign.sol": {
+      content: source,
+    },
+  },
+  settings: {
+    metadata: {
+      useLiteralContent: true,
+    },
+    outputSelection: {
+      "*": {
+        "*": ["*"],
+      },
+    },
+  },
+};
+
+const output = JSON.parse(solc.compile(JSON.stringify(input)));
+const contracts = output.contracts["Campaign.sol"];
 
 fs.ensureDirSync(buildPath);
 
-for (let contract in output) {
-  fs.outputJSONSync(
-    path.resolve(buildPath, contract.replace(":", "") + ".json"),
-    output[contract]
-  );
+for (let contract in contracts) {
+  if (contracts.hasOwnProperty(contract)) {
+    fs.outputJsonSync(
+      path.resolve(buildPath, `${contract}.json`),
+      contracts[contract]
+    );
+  }
 }
