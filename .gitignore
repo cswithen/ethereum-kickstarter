@@ -1,5 +1,12 @@
+# installation
 node_modules
+
+# solc compiler
 .vscode
-secrets.js
+
+# build ignores
 build
 .next
+
+# security
+secrets.js
