@@ -10,3 +10,4 @@ build
 
 # security
 secrets.js
+.env.local
