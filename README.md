@@ -12,32 +12,26 @@ KickCoin uses the Ethereum network and smart contracts for users to setup campai
 # Demo Reel
 
 <div align="center">
-<h3> Home Page </h3>
 <figure>
 <img src="https://s3.us-west-2.amazonaws.com/secure.notion-static.com/5cd9d911-fdb7-4f5a-89b4-16c9504cf450/Untitled.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIAT73L2G45EIPT3X45%2F20211201%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20211201T215013Z&X-Amz-Expires=86400&X-Amz-Signature=ef07b7cb5ceaf0ef3e3f5e90b68c3672fd6420e4494f48a0a882315fea3bc15a&X-Amz-SignedHeaders=host&response-content-disposition=filename%20%3D%22Untitled.png%22&x-id=GetObject">
 <figcaption>Home page of KickCoin: Here one can view a summary of all the campaigns on the site as well as access the nav bar and create a campaign button</figcaption>
 </figure>
-<h3> Create Campaign </h3>
 <figure>
 <img src="https://s3.us-west-2.amazonaws.com/secure.notion-static.com/2f361c9f-cc0d-4558-8f4f-64d261c87d5f/Untitled.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIAT73L2G45EIPT3X45%2F20211201%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20211201T215221Z&X-Amz-Expires=86400&X-Amz-Signature=a1830d85d32487bfd3aaf65bc9c468ae092fcddaa0eedad1a331ebdf5f197e27&X-Amz-SignedHeaders=host&response-content-disposition=filename%20%3D%22Untitled.png%22&x-id=GetObject">
 <figcaption>Create a Campaign page allows users to create a Campaign while setting a minimum contribution value. After the button is selected it will trigger MetaMask to create a Transaction</figcaption>
 </figure>
-<h3> Single Campaign </h3>
 <figure>
 <img src="https://s3.us-west-2.amazonaws.com/secure.notion-static.com/c0dea44f-6c71-4a09-8774-6f197f78ab93/Untitled.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIAT73L2G45EIPT3X45%2F20211201%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20211201T215342Z&X-Amz-Expires=86400&X-Amz-Signature=e2e5b043fa98f675fc1dd646d2c37caecd56043cbf0a4b67dfba07dd73e6ee40&X-Amz-SignedHeaders=host&response-content-disposition=filename%20%3D%22Untitled.png%22&x-id=GetObject">
 <figcaption>Single Campaign View, gives a summary of the campaign as well as access to contribute to the campaing and view requests associated to that campaign</figcaption>
 </figure>
-<h3> Requests Page </h3>
 <figure>
 <img src="https://s3.us-west-2.amazonaws.com/secure.notion-static.com/c115d0e1-0b96-4526-9ec8-79490a42529c/Untitled.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIAT73L2G45EIPT3X45%2F20211201%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20211201T215501Z&X-Amz-Expires=86400&X-Amz-Signature=48eea12259834b85f46ac3911a8068af1952df1e554a433c685120c75734fb82&X-Amz-SignedHeaders=host&response-content-disposition=filename%20%3D%22Untitled.png%22&x-id=GetObject">
 <figcaption>View Requests Page shows all the requests associated to the specific campaign and their status.</figcaption>
 </figure>
-<h3> Create Request </h3>
 <figure>
 <img src="https://s3.us-west-2.amazonaws.com/secure.notion-static.com/772b9f5c-cb5b-4a41-b562-fa9bd42704d2/Untitled.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIAT73L2G45EIPT3X45%2F20211201%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20211201T215558Z&X-Amz-Expires=86400&X-Amz-Signature=0304f5ef19f03f47a38b20e11a9321bd6e12add3512615cedaa5b30971c0c038&X-Amz-SignedHeaders=host&response-content-disposition=filename%20%3D%22Untitled.png%22&x-id=GetObject">
 <figcaption>Create Request page allows managers to create a request that will be voted on by contributors</figcaption>
 </figure>
-<h3> Error Handling </h3>
 <figure>
 <img src="https://s3.us-west-2.amazonaws.com/secure.notion-static.com/f84a2c7d-002b-4eaa-8b38-996a6722583e/Untitled.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIAT73L2G45EIPT3X45%2F20211201%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20211201T215829Z&X-Amz-Expires=86400&X-Amz-Signature=9ee3ff2c1e0cbd96da6a59fff090d1c8c13190f4867dd6a199453cf8d505fea9&X-Amz-SignedHeaders=host&response-content-disposition=filename%20%3D%22Untitled.png%22&x-id=GetObject">
 <figcaption>Error handling, specifcially showing an invalid address</figcaption>
