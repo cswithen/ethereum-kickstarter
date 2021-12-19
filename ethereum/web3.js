@@ -1,5 +1,6 @@
 import Web3 from "web3";
-import { infuraLink } from "./secrets";
+
+const infuraLink = process.env.INFURA_LINK;
 
 let web3;
 
