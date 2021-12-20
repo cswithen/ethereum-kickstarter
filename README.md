@@ -60,6 +60,12 @@ Begin by navigating to the project directory and entering the following command.
 npm install
 ```
 
+switch to the beforeProduction branch by using
+
+```
+git checkout beforeProduction
+```
+
 ## Generating the Secrets Part I
 
 > Note: if you are looking to just access the demo contract please contact me in any of the methods at the end of this file. I will happily provide you the contract address for you :)
